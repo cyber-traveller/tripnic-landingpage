@@ -1,0 +1,239 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: #333333;
+}
+
+header {
+    background-color: #f09115;
+    color: #fff;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+    align-items: center;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+}
+
+.title {
+    color: #fff;
+    margin-left: 10px;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s; /* Transition effect for smoothness */
+}
+
+nav ul li a:hover {
+    color: #000000d7; /* Lighter shade on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem;
+    background: #fff;
+    height: 80vh;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+.about, .products, .contact {
+    padding: 4rem;
+    text-align: center;
+    background: #fff;
+    margin-top: 2rem;
+}
+
+.about h2, .products h2, .contact h2 {
+    margin-bottom: 1rem;
+}
+
+.product-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.product {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; /* Added background color and box shadow transitions */
+}
+
+/* Hover Effect for Product */
+.product:hover {
+    transform: scale(1.05); /* Scale up the card on hover */
+    background-color: #ffe4b5; /* Light background color on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #333;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.3s; /* Transition effect for smoothness */
+}
+
+.btn:hover {
+    background: #ff9500; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.social-media {
+    margin-top: 2rem;
+}
+
+.social-media a {
+    color: #333;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: #0077b5; /* Change color on hover */
+}
+
+/* Phone Call Link */
+.contact p {
+    margin-top: 1rem;
+}
+
+.contact a {
+    color: #333; /* Default color for the phone link */
+    text-decoration: underline; /* Underline for better visibility */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.contact a:hover {
+    color: #0077b5; /* Change color on hover */
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo-title {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        width: 60px; /* Make logo smaller */
+    }
+
+    .title {
+        font-size: 1.5rem; /* Adjust title size for mobile */
+        margin-left: 0; /* Center title below logo */
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero {
+        padding: 2rem;
+        height: auto; /* Allow the hero section to adjust its height */
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Adjust text size for smaller screens */
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .product-list {
+        flex-direction: column; /* Stack products vertically */
+    }
+
+    .product {
+        width: 100%; /* Make products full width on mobile */
+        margin-bottom: 1.5rem;
+    }
+
+    .social-media a {
+        margin: 0 5px; /* Decrease margin for smaller screens */
+    }
+
+    .btn {
+        padding: 8px 16px; /* Adjust button padding */
+    }
+}
