@@ -1,30 +1,29 @@
+/* Reset and Base Styles */
 * { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f9f9f9;
     color: #333333;
 }
 
+/* Header and Navigation */
 header {
-    background-color: #f09115;
+    background-color: #01573D;
     color: #fff;
     padding: 1rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 0 20px;
-    align-items: center;
 }
 
 .logo-title {
@@ -33,7 +32,7 @@ nav {
 }
 
 .logo {
-    width: 80px;
+    width: 100px;
     height: auto;
 }
 
@@ -44,78 +43,391 @@ nav {
     font-weight: 600;
 }
 
-nav ul {
+.nav-links {
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
-nav ul li {
-    margin: 0 15px;
+.nav-links li {
+    margin: 0 10px;
 }
 
-nav ul li a {
+.nav-links li a {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s, transform 0.3s; /* Transition effect for smoothness */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-nav ul li a:hover {
-    color: #000000d7; /* Lighter shade on hover */
-    transform: scale(1.05); /* Slightly increase size on hover */
+.nav-links li a:hover {
+    background-color: #fff;
+    color: #01573D;
 }
 
+.logout-btn {
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+}
+
+.logout-btn:hover {
+    background-color: #fff;
+    color: #01573D;
+}
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 30px; /* Adjust the size of the hamburger icon */
+    z-index: 999; /* Keeps the hamburger icon on top */
+  }
+  
+  @media screen and (max-width: 768px) {
+    /* Display hamburger icon on smaller screens */
+    .hamburger {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  
+    /* Menu Styling */
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 300px; /* Adjust the width of the menu */
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease;
+      transform: translateX(100%); /* Menu hidden initially */
+      z-index: 998;
+    }
+  
+    .nav-links.active {
+      transform: translateX(0); /* Menu slides in when active */
+    }
+  
+    /* Adjust the size of the menu options */
+    .nav-links li {
+      margin: 20px 0;
+      list-style: none;
+    }
+  
+    .nav-links li a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px; /* Adjust the font size of menu options */
+      padding: 10px 20px;
+      display: block;
+      transition: color 0.3s;
+    }
+  
+    .nav-links li a:hover {
+      color:#01573D;
+    }
+  
+    /* Overlay hidden initially */
+    .overlay {
+      display: none;
+    }
+  
+    /* Show overlay when menu is open */
+    .overlay.active {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 997;
+    }
+  }
+  
+/* Hero Section with Background Banner */
 .hero {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 3rem;
-    background: #fff;
+    background-image: url('images/banner.jpg'); /* Local banner image */
+    background-size: cover;
+    background-position: center;
+    position: relative;
     height: 80vh;
     text-align: center;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Increased opacity */
+    z-index: 0; /* Positioned below the text */
+}
+
+.hero-text {
+    position: relative;
+    z-index: 1; /* Positioned above the overlay */
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
 }
 
-.about, .products, .contact {
+.hero .btn {
+    padding: 10px 20px;
+    background: #01573D;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.hero .btn:hover {
+    background-color: #fff;
+        color: #01573D;;
+}
+
+/* About, Tour, Blog, Contact Sections */
+.about, .tour, .blog, .contact {
     padding: 4rem;
     text-align: center;
     background: #fff;
     margin-top: 2rem;
 }
 
-.about h2, .products h2, .contact h2 {
+.about h2, .tour h2, .blog h2, .contact h2 {
     margin-bottom: 1rem;
 }
+.about {
+    padding: 20px; /* Optional: Add some padding for the section */
+}
 
-.product-list {
+.about h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Spacing below the heading */
+}
+
+.about p {
+    margin: 15px 0; /* Adds vertical spacing between paragraphs */
+    line-height: 1.6; /* Optional: Adjust line height for better readability */
+}
+
+/* Tour Section */
+.tour-list {
     display: flex;
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.tour-item {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.tour-item:hover {
+    transform: scale(1.05);
+    background-color: #8aa191;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tour-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.tour-item h3 {
+    margin-top: 1rem;
+    color: #01573D;
+}
+
+.tour-item p {
+    margin-top: 0.5rem;
+    color: #333;
+}
+
+    /* ... [Existing CSS remains unchanged] ... */
+
+/* Star Rating Styles */
+.star-rating {
+    display: flex;
+    justify-content: center; /* Centers the stars horizontally */
+    align-items: center;
+    margin: 0.5rem 0; /* Adds spacing above and below the stars */
+}
+
+.star-rating i {
+    color: #ffd900f0; /* Gold color for stars */
+    margin: 0 2px; /* Spacing between stars */
+    font-size: 1.2rem; /* Adjust size as needed */
+}
+
+/* Responsive Adjustments for Tour Items */
+@media (max-width: 768px) {
+    /* ... [Existing mobile styles] ... */
+    
+    .tour-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+    
+    .tour-item h3 {
+        margin-top: 1rem;
+        color: #01573D;
+    }
+    
+    .tour-item p {
+        margin-top: 0.5rem;
+        color: #333;
+    }
+    
+    /* Ensure star ratings are centered */
+    .star-rating {
+        justify-content: center;
+    }
+}
+
+    /* Carousel Adjustments */
+    .carousel-container {
+        max-width: 90%;
+    }
+    .carousel-btn {
+        padding: 0.3rem;
+    }
+
+    /* Social Media Links Adjustments */
+    .social-media a {
+        margin: 0 5px;
+    }
+
+    /* Button Adjustments */
+    .btn, .read-more {
+        padding: 8px 16px;
+    }
+
+/* Blog Section */
+.blog-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.blog-post {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.blog-post:hover {
+    transform: scale(1.05);
+    background-color: #8aa191;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.blog-post img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.blog-post h3 {
+    margin-bottom: 0.5rem;
+    color: #01573D;
+}
+
+.blog-post p {
+    color: #333;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #01573D;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.read-more:hover {
+    background: #8aa191;
+    transform: scale(1.05);
+}
+
+/* Destinations Carousel */
+
+.products h2 {
+    text-align: center; /* Centers the heading */
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #01573D;
+}
+.products {
+    position: relative;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
 .product {
+    font-family: 'Poppins';
     background: #f9f9f9;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 300px;
-    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; /* Added background color and box shadow transitions */
+    margin: 0 10px;
+    flex-shrink: 0;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
 }
 
-/* Hover Effect for Product */
 .product:hover {
-    transform: scale(1.05); /* Scale up the card on hover */
-    background-color: #ffe4b5; /* Light background color on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: scale(1.05);
+    background-color: #8aa191;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .product img {
@@ -124,23 +436,77 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-/* Button Styles */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #333;
-    color: #ffffff;
-    text-decoration: none;
+.product h3 {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 1rem;
+    color: #01573D;
+}
+
+.product p {
+    font-family: 'Poppins', ;
+    margin-top: 0.5rem;
+    color: #333;
+}
+/* Price Section */
+.price {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Old price with strikethrough */
+.original-price {
+    text-decoration: line-through; /* This adds the cut line */
+    color: #999; /* Lighter color for old price */
+    font-size: 1rem;
+}
+
+/* Discounted price styled prominently */
+.discounted-price {
+    color: #0d83cd;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Discount tag styled as a badge */
+.discount-tag {
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
     border-radius: 5px;
-    margin-top: 10px;
-    transition: background-color 0.3s, transform 0.3s; /* Transition effect for smoothness */
+    font-size: 0.8rem;
+    font-weight: bold;
 }
 
-.btn:hover {
-    background: #ff9500; /* Darker shade on hover */
-    transform: scale(1.05); /* Slightly increase size on hover */
+/* Carousel Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.3s;
 }
 
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.carousel-btn.left {
+    left: 10px;
+}
+
+.carousel-btn.right {
+    right: 10px;
+}
+
+/* Social Media Links */
 .social-media {
     margin-top: 2rem;
 }
@@ -149,10 +515,11 @@ nav ul li a:hover {
     color: #333;
     margin: 0 10px;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 .social-media a:hover {
-    color: #0077b5; /* Change color on hover */
+    color: #8aa191;
 }
 
 /* Phone Call Link */
@@ -161,15 +528,16 @@ nav ul li a:hover {
 }
 
 .contact a {
-    color: #333; /* Default color for the phone link */
-    text-decoration: underline; /* Underline for better visibility */
-    transition: color 0.3s; /* Smooth color transition */
+    color: #333;
+    text-decoration: underline;
+    transition: color 0.3s;
 }
 
 .contact a:hover {
-    color: #0077b5; /* Change color on hover */
+    color: #8aa191;
 }
 
+/* Footer */
 footer {
     background: #333;
     color: #fff;
@@ -177,63 +545,74 @@ footer {
     padding: 1rem;
 }
 
-/* Media Queries for Responsiveness */
+/* Responsive Styles */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
         text-align: center;
     }
-
     .logo-title {
         flex-direction: column;
         text-align: center;
     }
-
     .logo {
-        width: 60px; /* Make logo smaller */
+        width: 60px; /* Smaller logo on mobile */
     }
-
     .title {
-        font-size: 1.5rem; /* Adjust title size for mobile */
-        margin-left: 0; /* Center title below logo */
+        font-size: 1.5rem;
+        margin-left: 0;
+    }
+    
+    /* Display Hamburger Icon */
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
     }
 
-    nav ul {
+    /* Navigation Links for Mobile */
+    .nav-links {
+        position: absolute;
+        top: 70px; /* Adjust based on header height */
+        left: 0;
+        width: 100%;
+        background-color: #8aa191;
         flex-direction: column;
+        align-items: center;
+        display: none; /* Hidden by default */
         padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 999; /* Below the hamburger icon */
     }
 
-    nav ul li {
-        margin: 10px 0;
+    .nav-links.active {
+        display: flex;
     }
 
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    /* Hero Section Adjustments */
     .hero {
         padding: 2rem;
-        height: auto; /* Allow the hero section to adjust its height */
+        height: auto;
     }
-
     .hero h1 {
-        font-size: 2rem; /* Adjust text size for smaller screens */
+        font-size: 2rem;
     }
-
     .hero p {
         font-size: 1rem;
     }
 
-    .product-list {
-        flex-direction: column; /* Stack products vertically */
+    /* Tour and Blog Section Adjustments */
+    .tour-list, .blog-list {
+        flex-direction: column;
+        align-items: center;
     }
-
-    .product {
-        width: 100%; /* Make products full width on mobile */
+    .tour-item, .blog-post {
+        width: 90%; /* Full width with some margin */
         margin-bottom: 1.5rem;
     }
 
-    .social-media a {
-        margin: 0 5px; /* Decrease margin for smaller screens */
-    }
-
-    .btn {
-        padding: 8px 16px; /* Adjust button padding */
-    }
-}
